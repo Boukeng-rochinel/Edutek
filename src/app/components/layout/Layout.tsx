@@ -22,6 +22,8 @@ const routeLabels: Record<string, string> = {
   '/gradebook': 'Gradebook',
   '/apps': 'Apps',
   '/settings': 'Settings',
+  '/profile': 'User Profile',
+  '/fees': 'Fees Management',
 };
 
 export default function Layout() {
@@ -140,6 +142,10 @@ export default function Layout() {
                   <p className="text-xs text-gray-400">Active session</p>
                 </div>
                 <button
+                  onClick={() => {
+                    setAvatarOpen(false);
+                    navigate('/profile');
+                  }}
                   className="w-full flex items-center gap-2 px-3 py-2 text-xs text-gray-700 hover:bg-gray-50 transition-colors"
                 >
                   <User size={13} className="text-gray-400" />

@@ -9,6 +9,7 @@ import {
   UserCircle,
   BookOpen,
   Settings as SettingsIcon,
+  DollarSign,
 } from 'lucide-react';
 
 const apps = [
@@ -20,6 +21,7 @@ const apps = [
   { icon: Bus, label: 'Transportation', path: '/transportation', color: '#875A7B' },
   { icon: UserCircle, label: 'Parent Portal', path: '/parent-portal', color: '#16A085' },
   { icon: BookOpen, label: 'Gradebook', path: '/gradebook', color: '#D35400' },
+  { icon: DollarSign, label: 'School Fees', path: '/fees', color: '#F39C12' },
   { icon: SettingsIcon, label: 'Settings', path: '/settings', color: '#7F8C8D' },
 ];
 
@@ -44,10 +46,10 @@ export default function Dashboard() {
               >
                 {/* Icon — doubled from 56px to 112px */}
                 <div
-                  className="w-28 h-28 rounded-3xl flex items-center justify-center text-white shadow-sm group-hover:shadow-md transition-shadow duration-150"
+                  className="w-20 h-20 rounded-3xl flex items-center justify-center text-white shadow-sm group-hover:shadow-md transition-shadow duration-150"
                   style={{ backgroundColor: app.color }}
                 >
-                  <Icon size={52} />
+                  <Icon size={32} />
                 </div>
                 <span className="text-sm text-gray-600 text-center font-medium group-hover:text-gray-900 leading-snug">
                   {app.label}

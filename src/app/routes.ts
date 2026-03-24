@@ -12,6 +12,8 @@ import Gradebook from "./pages/Gradebook";
 import Login from "./pages/Login";
 import Apps from "./pages/Apps";
 import Settings from "./pages/Settings";
+import UserProfile from "./pages/UserProfile";
+import FeesManagement from "./pages/FeesManagement";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +35,8 @@ export const router = createBrowserRouter([
       { path: "gradebook", Component: Gradebook },
       { path: "apps", Component: Apps },
       { path: "settings", Component: Settings },
+      { path: "profile", Component: UserProfile },
+      { path: "fees", Component: FeesManagement },
     ],
   },
 ]);

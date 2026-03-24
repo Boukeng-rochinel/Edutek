@@ -19,7 +19,7 @@ export default function StudentManagement() {
   const [activeTab, setActiveTab] = useState('academic');
   const [studentImage, setStudentImage] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
+
   const [formData, setFormData] = useState({
     id: '',
     name: '',
@@ -41,31 +41,13 @@ export default function StudentManagement() {
       const reader = new FileReader();
       reader.onloadend = () => {
         setStudentImage(reader.result as string);
-        setFormData({...formData, image: reader.result as string});
+        setFormData({ ...formData, image: reader.result as string });
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const handleCreate = () => {
-    setFormData({
-      id: '',
-      name: '',
-      class: 'Form 1A',
-      gender: 'Male',
-      phone: '',
-      email: '',
-      dob: '',
-      address: '',
-      status: 'Active',
-      parent: '',
-      parentPhone: '',
-      image: ''
-    });
-    setStudentImage('');
-    setSelectedStudent(null);
-    setView('form');
-  };
+  // handleCreate removed as per new flow
 
   const handleEdit = (student: typeof mockStudents[0]) => {
     setFormData(student);
@@ -114,9 +96,9 @@ export default function StudentManagement() {
             <div className="border-b border-gray-300 px-6 py-3 bg-gray-50 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-medium text-gray-700">Status:</span>
-                <select 
+                <select
                   value={formData.status}
-                  onChange={(e) => setFormData({...formData, status: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, status: e.target.value })}
                   className="px-2 py-0.5 border border-gray-300 text-xs focus:outline-none focus:border-gray-400"
                 >
                   <option>Active</option>
@@ -161,7 +143,7 @@ export default function StudentManagement() {
                     Upload Photo
                   </button>
                 </div>
-                
+
                 <div className="flex-1">
                   <h2 className="text-sm font-medium text-gray-700 mb-4">Personal Information</h2>
                   <div className="grid grid-cols-2 gap-x-6 gap-y-4">
@@ -172,7 +154,7 @@ export default function StudentManagement() {
                       <input
                         type="text"
                         value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                         placeholder="Enter student name"
                       />
@@ -184,7 +166,7 @@ export default function StudentManagement() {
                       <input
                         type="date"
                         value={formData.dob}
-                        onChange={(e) => setFormData({...formData, dob: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
                         className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                       />
                     </div>
@@ -194,7 +176,7 @@ export default function StudentManagement() {
                       </label>
                       <select
                         value={formData.gender}
-                        onChange={(e) => setFormData({...formData, gender: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
                         className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                       >
                         <option>Male</option>
@@ -207,7 +189,7 @@ export default function StudentManagement() {
                       </label>
                       <select
                         value={formData.class}
-                        onChange={(e) => setFormData({...formData, class: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, class: e.target.value })}
                         className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                       >
                         <option>Form 1A</option>
@@ -231,7 +213,7 @@ export default function StudentManagement() {
                     <input
                       type="tel"
                       value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                       placeholder="+237"
                     />
@@ -241,7 +223,7 @@ export default function StudentManagement() {
                     <input
                       type="email"
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                       placeholder="student@school.cm"
                     />
@@ -250,7 +232,7 @@ export default function StudentManagement() {
                     <label className="block text-xs font-medium text-gray-700 mb-1">Address</label>
                     <textarea
                       value={formData.address}
-                      onChange={(e) => setFormData({...formData, address: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                       rows={2}
                       className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                       placeholder="Enter address"
@@ -271,7 +253,7 @@ export default function StudentManagement() {
                     <input
                       type="text"
                       value={formData.parent}
-                      onChange={(e) => setFormData({...formData, parent: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, parent: e.target.value })}
                       className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                       placeholder="Enter parent name"
                     />
@@ -283,7 +265,7 @@ export default function StudentManagement() {
                     <input
                       type="tel"
                       value={formData.parentPhone}
-                      onChange={(e) => setFormData({...formData, parentPhone: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, parentPhone: e.target.value })}
                       className="w-full px-2 py-1.5 border border-gray-300 text-xs focus:outline-none focus:border-[#017e84]"
                       placeholder="+237"
                     />
@@ -295,99 +277,29 @@ export default function StudentManagement() {
             {/* Notebook Tabs */}
             <div className="border-t border-gray-300">
               <div className="px-6 py-0 flex gap-4 text-xs border-b border-gray-300">
-                <button 
+                <button
                   onClick={() => setActiveTab('academic')}
                   className={`px-3 py-2 border-b-2 ${activeTab === 'academic' ? 'border-[#017e84] text-gray-900' : 'border-transparent text-gray-600 hover:text-gray-900'}`}
                 >
                   Academic Records
                 </button>
-                <button 
-                  onClick={() => setActiveTab('fees')}
-                  className={`px-3 py-2 border-b-2 flex items-center gap-1 ${activeTab === 'fees' ? 'border-[#017e84] text-gray-900' : 'border-transparent text-gray-600 hover:text-gray-900'}`}
-                >
-                  <DollarSign size={12} />
-                  School Fees
-                </button>
-                <button 
+                <button
                   onClick={() => setActiveTab('health')}
                   className={`px-3 py-2 border-b-2 ${activeTab === 'health' ? 'border-[#017e84] text-gray-900' : 'border-transparent text-gray-600 hover:text-gray-900'}`}
                 >
                   Health Records
                 </button>
-                <button 
+                <button
                   onClick={() => setActiveTab('documents')}
                   className={`px-3 py-2 border-b-2 ${activeTab === 'documents' ? 'border-[#017e84] text-gray-900' : 'border-transparent text-gray-600 hover:text-gray-900'}`}
                 >
                   Documents
                 </button>
               </div>
-              
+
               <div className="p-6 min-h-[200px] bg-gray-50">
                 {activeTab === 'academic' && (
                   <p className="text-xs text-gray-500">Academic records will be displayed here...</p>
-                )}
-                {activeTab === 'fees' && (
-                  <div>
-                    <div className="bg-white border border-gray-200 p-4 mb-4">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-sm font-medium text-gray-900">Fee Summary</h3>
-                        <button className="px-3 py-1 bg-[#017e84] text-white text-xs hover:bg-[#016168]">
-                          Record Payment
-                        </button>
-                      </div>
-                      <div className="grid grid-cols-3 gap-4 text-xs">
-                        <div>
-                          <div className="text-gray-600 mb-1">Total Fees</div>
-                          <div className="text-lg font-semibold text-gray-900">185,000 FCFA</div>
-                        </div>
-                        <div>
-                          <div className="text-gray-600 mb-1">Paid</div>
-                          <div className="text-lg font-semibold text-green-600">185,000 FCFA</div>
-                        </div>
-                        <div>
-                          <div className="text-gray-600 mb-1">Balance</div>
-                          <div className="text-lg font-semibold text-red-600">0 FCFA</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <table className="w-full text-xs border border-gray-200">
-                      <thead className="bg-gray-100">
-                        <tr>
-                          <th className="text-left px-3 py-2 border-b border-gray-200">Description</th>
-                          <th className="text-right px-3 py-2 border-b border-gray-200">Amount</th>
-                          <th className="text-left px-3 py-2 border-b border-gray-200">Date</th>
-                          <th className="text-left px-3 py-2 border-b border-gray-200">Status</th>
-                        </tr>
-                      </thead>
-                      <tbody className="bg-white">
-                        <tr>
-                          <td className="px-3 py-2 border-b">Tuition - Term 1</td>
-                          <td className="px-3 py-2 text-right border-b">150,000 FCFA</td>
-                          <td className="px-3 py-2 border-b">2026-01-15</td>
-                          <td className="px-3 py-2 border-b">
-                            <span className="px-2 py-0.5 bg-green-100 text-green-800">Paid</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-3 py-2 border-b">Transport - Term 1</td>
-                          <td className="px-3 py-2 text-right border-b">25,000 FCFA</td>
-                          <td className="px-3 py-2 border-b">2026-01-15</td>
-                          <td className="px-3 py-2 border-b">
-                            <span className="px-2 py-0.5 bg-green-100 text-green-800">Paid</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="px-3 py-2">Library Fee</td>
-                          <td className="px-3 py-2 text-right">10,000 FCFA</td>
-                          <td className="px-3 py-2">2026-01-15</td>
-                          <td className="px-3 py-2">
-                            <span className="px-2 py-0.5 bg-green-100 text-green-800">Paid</span>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
                 )}
                 {activeTab === 'health' && (
                   <p className="text-xs text-gray-500">Health records will be displayed here...</p>
@@ -408,16 +320,10 @@ export default function StudentManagement() {
       {/* Control Panel */}
       <div className="bg-white border-b border-gray-300 px-4 py-2 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <button
-            onClick={handleCreate}
-            className="bg-[#017e84] text-white px-3 py-1.5 text-xs font-medium hover:bg-[#016168] flex items-center gap-1"
-          >
-            <Plus size={14} />
-            New
-          </button>
+          <div className="text-sm font-semibold text-gray-800">Students</div>
           <div className="h-4 w-px bg-gray-300"></div>
           <div className="relative">
-            <button 
+            <button
               onClick={() => setShowMoreMenu(!showMoreMenu)}
               className="px-2 py-1.5 text-xs hover:bg-gray-100 flex items-center gap-1"
             >
@@ -501,8 +407,8 @@ export default function StudentManagement() {
               </thead>
               <tbody>
                 {mockStudents.map((student, index) => (
-                  <tr 
-                    key={student.id} 
+                  <tr
+                    key={student.id}
                     className={`border-b border-gray-200 hover:bg-gray-50 cursor-pointer ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'}`}
                     onClick={() => handleEdit(student)}
                   >
